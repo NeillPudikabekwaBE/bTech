@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Certificate of Compliance (COC)</title>
+  <style>
+    /* Basic Styling */
+    body { font-family: Arial, sans-serif; }
+    .container { width: 800px; margin: 0 auto; border: 1px solid #ccc; padding: 20px; }
+    h1 { text-align: center; }
+    table { width: 80%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f0f0f0; } /* Light gray header */
+
+    /* Additional Styling (Optional) */
+    .company-logo { /* Add styling for your company logo */ }
+    .signature { /* Add styling for signature area */ }
+	
+    td input[type="text"] { 
+      width: 100%; /* Make input fields full width */
+      box-sizing: border-box; /* Include padding and border in element's total width */
+      border: 1px solid #ccc;
+      padding: 5px; 
+    }
+	
+	    #nextButton {
+      display: block;
+      width: 150px; /* Adjust width as needed */
+      margin: 20px auto; /* Center the button horizontally */
+      padding: 10px;
+      background-color: #8c173a;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+	   #nextButton:hover {
+      background-color: #808080;
+    }
+	
+	  .system-info {
+    width: 300px; /* Adjust width as needed */
+    margin: 20px auto; /* Center the container horizontally */
+    padding: 20px;
+    background-color: #8c173a;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .system-info h3 {
+    margin-top: 0;
+  }
+
+  .system-info p {
+    margin: 5px 0;
+  }
+  
+  	    .info-container {
+      width: 300px; /* Adjust width as needed */
+      margin: 20px auto; /* Center the container horizontally */
+      padding: 20px;
+      background-color: #8c173a;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .info-container h3 {
+      margin-top: 0;
+    }
+
+       .info-container p {
+      margin: 5px 0;
+    } 
+  
+      .vehicle-connections {
+      width: 300px; /* Adjust width as needed */
+      margin: 20px auto; 
+      padding: 20px;
+      background-color: #8c173a;
+      border: 1px solid #808080;
+      border-radius: 8px;
+    }
+	
+	    .app-bar {
+      background-color: #8c173a;
+      color: black;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center; /* Vertically center items */
+    }
+
+    .app-bar button { /* Style the back button */
+      background: #808080; /* Remove default button background */
+      border: none;
+      color: black;
+      font-size: 18px;
+      cursor: pointer;
+      margin-right: 20px;
+    }
+	
+  </style>
+</head>
+<body>
+  <div class="app-bar">
+    <button id="backButton"><i class="fas fa-arrow-left"></i> Back</button> 
+    <h1>Certificate of Compliance (COC)</h1>
+  </div>
+	
+    <div class="info-container"> 
+      <h3>Date:</h3>
+      <p id="date"></p>
+      <h3>Time:</h3>
+      <p id="time"></p>
+      <h3>COC Number:</h3>
+      <p id="cocNumber"></p>
+      <h3>Booyco Technician Name:</h3>
+      <p id="technicianName"></p>
+      <h3>Client Name:</h3>
+      <p id="clientName"></p>
+      <h3>Site Name:</h3>
+      <p id="siteName"></p>
+    </div>
+	
+	    <div class="system-info">
+      <h3>System Type:</h3>
+      <p id="systemType"></p>
+      <h3>System Variant:</h3>
+      <p id="systemVariant"></p>
+      <h3>Vehicle ID:</h3>
+      <p id="vehicleId"></p>
+      <h3>Vehicle Type:</h3>
+      <p id="vehicleType"></p>
+      <h3>Vehicle Make:</h3>
+      <p id="vehicleMake"></p>
+      <h3>Vehicle Model:</h3>
+      <p id="vehicleModel"></p>
+    </div>
+	
+	    <h2>Zone Setup :</h2>
+    <table>
+      <tr>
+        <td>Please select zone setup:</td>
+        <td>
+          <select id="zoneSetupDropdown">
+            <option value="">Select Zone Setup</option>
+            </select>
+        </td>
+      </tr>
+    </table>
+
+    <h2>Vehicle Connections</h2> <div class="vehicle-connections">
+      <label><input type="radio" name="connection" value="Level 8"> Level 8</label><br>
+      <label><input type="radio" name="connection" value="Level 9"> Level 9</label><br>
+      <label><input type="radio" name="connection" value="IO"> IO</label><br>
+      <label><input type="radio" name="connection" value="CAN BUS"> CAN BUS</label><br>
+    </div>
+
+    <h2>Vehicle to Pedestrian Zones :</h2>
+    <table>
+      <tr>
+        <th>Direction</th>
+        <th>Presence Zone (m)</th>
+        <th>Warning Zone (m)</th>
+        <th>Critical Zone (m)</th>
+      </tr>
+      <tr><td>Front</td><td><input type="text" placeholder="Enter Zone Size in meters"></td><td><input type="text" placeholder="Enter Zone Size in meters"></td><td><input type="text" placeholder="Enter Zone Size in meters"></td></tr>
+      <tr><td>Rear</td><td><input type="text" placeholder="Enter Zone Size in meters"></td><td><input type="text" placeholder="Enter Zone Size in meters"></td><td><input type="text" placeholder="Enter Zone Size in meters"></td></tr>
+      <tr><td>Left</td><td><input type="text" placeholder="Enter Zone Size in meters"></td><td><input type="text" placeholder="Enter Zone Size in meters"></td><td><input type="text" placeholder="Enter Zone Size in meters"></td></tr>
+      <tr><td>Right</td><td><input type="text" placeholder="Enter Zone Size in meters"></td><td><input type="text" placeholder="Enter Zone Size in meters"></td><td><input type="text" placeholder="Enter Zone Size in meters"></td></tr>
+    </table>
+
+    <h2>Vehicle to Vehicle Zones :</h2>
+    <table>
+      <tr>
+        <th>Direction</th>
+        <th>Presence Zone (m)</th>
+        <th>Warning Zone (m)</th>
+        <th>Critical Zone (m)</th>
+      </tr>
+      <tr><td>Front</td><td><input type="text" placeholder="Enter Zone Size in meters"></td><td><input type="text" placeholder="Enter Zone Size in meters"></td><td><input type="text" placeholder="Enter Zone Size in meters"></td></tr>
+      <tr><td>Rear</td><td><input type="text" placeholder="Enter Zone Size in meters"></td><td><input type="text" placeholder="Enter Zone Size in meters"></td><td><input type="text" placeholder="Enter Zone Size in meters"></td></tr>
+      <tr><td>Left</td><td><input type="text" placeholder="Enter Zone Size in meters"></td><td><input type="text" placeholder="Enter Zone Size in meters"></td><td><input type="text" placeholder="Enter Zone Size in meters"></td></tr>
+      <tr><td>Right</td><td><input type="text" placeholder="Enter Zone Size in meters"></td><td><input type="text" placeholder="Enter Zone Size in meters"></td><td><input type="text" placeholder="Enter Zone Size in meters"></td></tr>
+    </table>
+
+    <div class="signature">
+      <p>Signature: ___________________</p>
+      <p>Date: ___________________</p>
+    </div>
+	 <button id="nextButton">Next</button>
+  </div>
+  
+    <script>
+    // Get references to the elements
+    const systemType = document.getElementById('systemType');
+    const systemVariant = document.getElementById('systemVariant');
+    const vehicleId = document.getElementById('vehicleId');
+    const vehicleType = document.getElementById('vehicleType');
+    const vehicleMake = document.getElementById('vehicleMake');
+    const vehicleModel = document.getElementById('vehicleModel');
+
+    // Populate with data (you'll need to fetch these values from your system)
+    /*systemType.textContent = 'Your System Type';
+    systemVariant.textContent = 'Your System Variant';
+    vehicleId.textContent = 'Your Vehicle ID';
+    vehicleType.textContent = 'Your Vehicle Type';
+    vehicleMake.textContent = 'Your Vehicle Make';
+    vehicleModel.textContent = 'Your Vehicle Model';*/
+	
+	    // Get references to the new elements
+    const date = document.getElementById('date');
+    const time = document.getElementById('time');
+    const cocNumber = document.getElementById('cocNumber');
+    const technicianName = document.getElementById('technicianName');
+    const clientName = document.getElementById('clientName');
+    const siteName = document.getElementById('siteName');
+
+    // Populate with data (you'll need to fetch these values dynamically)
+    /*date.textContent = '2024-05-20'; // Example date format
+    time.textContent = '12:58 PM';   // Example time format
+    cocNumber.textContent = 'COC-12345'; 
+    technicianName.textContent = 'John Doe';
+    clientName.textContent = 'Acme Corporation';
+    siteName.textContent = 'Site A';*/
+	
+	    // Get a reference to the back button
+    const backButton = document.getElementById('backButton');
+
+    // Add an event listener to the back button
+    backButton.addEventListener('click', () => {
+      // Logic to handle the back button click (e.g., go back to the main menu)
+      window.api.goBackToMainMenu(); // Assuming you have this function in your preload.js
+    });
+
+    // ... (Your existing button click event listeners and other code)
+	
+  </script>
+  
+</body>
+</html>

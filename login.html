@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Authentication</title>
+    <style>
+        /* Basic styling (you can customize this) */
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background-color: #f0f0f0; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); text-align: center; }
+        img.logo { max-width: 100px; margin-bottom: 20px; } /* Adjust max-width as needed */
+        input[type="email"], input[type="password"] { width: 100%; padding: 10px; margin: 8px 0; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        button { background-color: #8c173a; color: white; padding: 10px 15px; margin: 8px 0; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #808080; }
+        .forgot-password { text-align: right; margin-top: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="C:\Users\neill\Desktop\booycotech\icon.png" alt="BooycoTech" class="logo">
+        <h2>Booyco Electronics Tech Application</h2>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <div class="forgot-password">
+                <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript for handling form submission and forgot password link (explained below)
+        window.api.receiveLoginResult((event, success, errorMessage) => {
+            if (success) {
+                // Login successful, no action needed here as main window will be created.
+            } else {
+                // Display error message (e.g., using an alert or a specific element)
+                console.error('Error logging in:', errorMessage);
+                alert(errorMessage);
+            }
+        });
+
+        const loginForm = document.getElementById('loginForm');
+        const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Here, you would typically send the email and password to a backend server for authentication.
+            // For this example, we'll just log them to the console.
+            console.log('Email:', email);
+            console.log('Password:', password);
+        });
+
+        forgotPasswordLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            // Here, you would typically open a new window or redirect to a "forgot password" page.
+            console.log('Forgot password link clicked!');
+        });
+    </script>
+</body>
+</html>

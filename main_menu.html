@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Main Menu</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex; /* Center content */
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    ul {
+      list-style: none; /* Remove default list styling */
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 15px; /* Spacing between list items */
+    }
+
+    button {
+      display: block;     /* Make buttons occupy full width */
+      width: 100%;       /* Take full width of parent */
+      padding: 15px; 
+      background-color: #8c173a;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: center; /* Center text within buttons */
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #808080;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Booyco Electronics Tech Main Menu</h1>
+
+    <ul>
+      <li><button id="scanQRButton">Scan QR</button></li>
+      <li><button id="syncButton">Sync</button></li>
+      <li><button id="viewVehiclesButton">View Vehicles</button></li>
+      <li><button id="viewIncompleteReportsButton">View Incomplete Reports</button></li>
+      <li><button id="settingsButton">Settings</button></li>
+      <li><button id="logoutButton">Logout</button></li>
+    </ul>
+  </div>
+
+  <script>
+    // ... (button click event listeners)
+	
+	        const { ipcRenderer } = require('electron');
+        
+        document.getElementById('scanQRButton').addEventListener('click', () => {
+            ipcRenderer.send('navigate', 'scan_qr.html');
+        });
+        document.getElementById('syncButton').addEventListener('click', () => {
+            ipcRenderer.send('navigate', 'sync.html');
+        });
+        document.getElementById('viewVehiclesButton').addEventListener('click', () => {
+            ipcRenderer.send('navigate', 'view_vehicles.html');
+        });
+        document.getElementById('viewIncompleteReportsButton').addEventListener('click', () => {
+            ipcRenderer.send('navigate', 'view_reports.html');
+        });
+        document.getElementById('settingsButton').addEventListener('click', () => {
+            ipcRenderer.send('navigate', 'settings.html');
+        });
+        document.getElementById('logoutButton').addEventListener('click', () => {
+            ipcRenderer.send('navigate', 'login.html');
+        });
+	
+  </script>
+</body>
+</html>
